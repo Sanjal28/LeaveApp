@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Leave Request Update</title>
+</head>
+<body>
+<p>Hi <span th:text="${employeeName}">Employee</span>,</p>
+<p>Your leave request from <b th:text="${startDate}"></b> to <b th:text="${endDate}"></b> has been <b th:text="${status}"></b>.</p>
+
+<div th:if="${decisionReason != null}">
+    <p><b>Reason from Manager:</b> <span th:text="${decisionReason}"></span></p>
+</div>
+
+<div th:if="${newBalance != null}">
+    <p>Your remaining leave balance for the year is now <b th:text="${newBalance}"></b> days.</p>
+</div>
+
+<p>Thanks,<br/>The LeaveApp Team</p>
+</body>
+</html>

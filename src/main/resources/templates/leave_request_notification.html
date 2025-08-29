@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>New Leave Request</title>
+</head>
+<body>
+<p>Hi <span th:text="${managerName}">Manager</span>,</p>
+<p>A new leave request has been submitted by <b th:text="${employeeName}">Employee</b>.</p>
+<ul>
+    <li><b>Type:</b> <span th:text="${leaveType}"></span></li>
+    <li><b>Dates:</b> <span th:text="${startDate}"></span> to <span th:text="${endDate}"></span> (<span th:text="${days}"></span> days)</li>
+    <li><b>Reason:</b> <span th:text="${reason}"></span></li>
+</ul>
+<p>Please log in to the portal to review and take action.</p>
+<p>Thanks,<br/>The LeaveApp Team</p>
+</body>
+</html>
