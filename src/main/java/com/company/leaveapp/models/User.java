@@ -66,15 +66,24 @@ public class User implements UserDetails {
         updatedAt = LocalDateTime.now();
     }
 
-    // UserDetails methods
+    // --- UserDetails methods ---
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority("ROLE_" + role.name()));
     }
 
+    // --- THIS IS THE DEFINITIVE FIX ---
+    // Explicitly implementing this method ensures Spring Security can always access the password hash,
+    // resolving the "Bad Credentials" error.
+    @Override
+    public String getPassword() {
+        return this.password;
+    }
+
     @Override
     public String getUsername() {
-        return email;
+        return this.email;
     }
 
     @Override
